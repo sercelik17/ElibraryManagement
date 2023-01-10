@@ -1,9 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="userprofile.aspx.cs" Inherits="WebApplication3.userprofile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   <script type="text/javascript">
+       $(document).ready(function () {
+           $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+       });
+   </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="container-fluid">
+   <div class="container-fluid">
       <div class="row">
          <div class="col-md-5">
             <div class="card">
@@ -39,7 +43,7 @@
                      <div class="col-md-6">
                         <label>Date of Birth</label>
                         <div class="form-group">
-                            <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Date of Birth" TextMode="Date" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+                           <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Password" TextMode="Date"></asp:TextBox>
                         </div>
                      </div>
                   </div>
@@ -134,7 +138,7 @@
                      <div class="col-md-4">
                         <label>Old Password</label>
                         <div class="form-group">
-                           <asp:TextBox class="form-control" ID="TextBox9" runat="server" placeholder="Old Password" TextMode="Password" ReadOnly="True"></asp:TextBox>
+                           <asp:TextBox class="form-control" ID="TextBox9" runat="server" placeholder="Old Password" ReadOnly="True"></asp:TextBox>
                         </div>
                      </div>
                      <div class="col-md-4">
@@ -148,7 +152,7 @@
                      <div class="col-8 mx-auto">
                         <center>
                            <div class="form-group">
-                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" />
+                              <asp:Button class="btn btn-primary btn-block btn-lg" ID="Button1" runat="server" Text="Update" OnClick="Button1_Click" />
                            </div>
                         </center>
                      </div>
@@ -171,8 +175,7 @@
                      <div class="col">
                         <center>
                            <h4>Your Issued Books</h4>
-                           <asp:Label class="badge badge-pill badge-info" 
-                               ID="Label2" runat="server" Text="your books info"></asp:Label>
+                           <asp:Label class="badge badge-pill badge-info" ID="Label2" runat="server" Text="your books info"></asp:Label>
                         </center>
                      </div>
                   </div>
@@ -183,8 +186,7 @@
                   </div>
                   <div class="row">
                      <div class="col">
-                        <asp:GridView class="table table-striped table-bordered" 
-                            ID="GridView1" runat="server"></asp:GridView>
+                        <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" OnRowDataBound="GridView1_RowDataBound"></asp:GridView>
                      </div>
                   </div>
                </div>
@@ -192,5 +194,4 @@
          </div>
       </div>
    </div>
-
 </asp:Content>
