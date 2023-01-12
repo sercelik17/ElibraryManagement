@@ -91,13 +91,15 @@ CREATE TABLE [dbo].[admin_table](
 	[username] [nvarchar](50) NOT NULL,
 	[password] [nvarchar](50) NULL,
 	[full_name] [nvarchar](50) NULL,
-	INSERT INTO [dbo].[admin_table] (username, password, full_name)
-VALUES ('ts11', '123', 'Tanmay Sakpal');
+	
  CONSTRAINT [PK_admin_login_tbl] PRIMARY KEY CLUSTERED 
 (
 	[username] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+INSERT INTO [dbo].[admin_table] (username, password, full_name)
+VALUES ('ts11', '123', 'Tanmay Sakpal');
 GO
 /****** Object:  Table [dbo].[author_master_tbl]    Script Date: 11 Oca 2023 21:33:29 ******/
 SET ANSI_NULLS ON
